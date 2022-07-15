@@ -24,8 +24,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Expanded(
-        child: Image.asset(AppAssets.images.bground),
+      child: Column(
+        children: [
+          Expanded(
+            child: Image.asset(AppAssets.images.bground),
+          ),
+        ],
       ),
     );
   }
