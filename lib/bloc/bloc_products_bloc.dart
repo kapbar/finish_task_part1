@@ -1,6 +1,5 @@
 import 'package:finish_task_part1/data/product.dart';
 import 'package:finish_task_part1/repo/repo_products.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'bloc_products_event.dart';
@@ -40,7 +39,23 @@ class BlocProducts extends Bloc<BlocProductsEvent, BlocProductsState> {
         );
       },
     );
+    on<EventProductsRating>(
+      (event, emit) {
+        emit(BlocProductsLoading());
+        final result = repo.ratingProduct(event.rate);
+        if (result.errorMessage != null) {
+          emit(
+            BlocProductsError(result.errorMessage!),
+          );
+          return;
+        }
+        emit(
+          BlocProductsData(data: result.productsList!),
+        );
+      },
+    );
   }
 
   final RepoProducts repo;
 }
+

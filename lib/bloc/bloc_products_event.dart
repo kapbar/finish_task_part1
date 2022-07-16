@@ -15,7 +15,9 @@ class EventProductsCategory extends BlocProductsEvent {
 }
 
 class EventProductsRating extends BlocProductsEvent {
-  EventProductsRating(this.name);
+  EventProductsRating(this.rate);
 
-  final String name;
+  final double rate;
+  
 }
+

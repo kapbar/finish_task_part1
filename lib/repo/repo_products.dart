@@ -37,9 +37,27 @@ class RepoProducts {
 
   ResultRepoProducts categoryProduct(String category) {
     try {
-      filteredList = _productsList.where((element) {
-        return (element.category.toLowerCase().contains(category));
-      }).toList();
+      filteredList = category == 'category'
+          ? _productsList
+          : filteredList.where((element) {
+              return (element.category.toLowerCase() == category);
+            }).toList();
+      return ResultRepoProducts(productsList: filteredList);
+    } catch (error) {
+      print('🏐 Error : $error');
+      return ResultRepoProducts(
+        errorMessage: 'Error Error Error Error',
+      );
+    }
+  }
+
+  ResultRepoProducts ratingProduct(double rate) {
+    try {
+      filteredList = rate == 0.0
+          ? _productsList
+          : filteredList.where((element) {
+              return (rate <= element.rating.rate);
+            }).toList();
       return ResultRepoProducts(productsList: filteredList);
     } catch (error) {
       print('🏐 Error : $error');

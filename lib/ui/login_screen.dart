@@ -1,4 +1,5 @@
 import 'package:finish_task_part1/constants/app_assets.dart';
+import 'package:finish_task_part1/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -32,11 +33,11 @@ class _LoginScreenState extends State<LoginScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Error'),
+          title: Text(S.of(context).somethingWentWrongTryAgain),
           actions: [
             ElevatedButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('ok'),
+              child: Text(S.of(context).ok),
             ),
           ],
         );
@@ -60,11 +61,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const SizedBox(height: 20.0),
                   TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Login',
+                    decoration: InputDecoration(
+                      hintText: S.of(context).login,
                       filled: true,
-                      fillColor: Color.fromARGB(255, 210, 210, 210),
-                      border: OutlineInputBorder(
+                      fillColor: const Color.fromARGB(255, 210, 210, 210),
+                      border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(12.0)),
                         borderSide: BorderSide.none,
                       ),
@@ -75,11 +76,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 20.0),
                   TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Password',
+                    decoration: InputDecoration(
+                      hintText: S.of(context).password,
                       filled: true,
-                      fillColor: Color.fromARGB(255, 210, 210, 210),
-                      border: OutlineInputBorder(
+                      fillColor: const Color.fromARGB(255, 210, 210, 210),
+                      border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(12.0)),
                         borderSide: BorderSide.none,
                       ),
@@ -100,12 +101,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     child: Row(
-                      children: const [
+                      children: [
                         Expanded(
                           child: Center(
                             child: Text(
-                              'Sign in',
-                              style: TextStyle(fontSize: 20.0),
+                              S.of(context).signIn,
+                              style: const TextStyle(fontSize: 20.0),
                             ),
                           ),
                         ),

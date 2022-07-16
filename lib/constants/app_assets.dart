@@ -4,6 +4,6 @@ abstract class AppAssets {
 
 class _Images {
   const _Images();
-  final String logo = 'assets/images/logo.png';
+  final String logo = 'assets/images/logo2.png';
   final String bground = 'assets/images/bground.jpg';
 }

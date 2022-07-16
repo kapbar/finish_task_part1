@@ -1,4 +1,6 @@
+import 'package:finish_task_part1/constants/app_styles.dart';
 import 'package:finish_task_part1/data/product.dart';
+import 'package:finish_task_part1/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
@@ -10,21 +12,22 @@ class ProductDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Product Details'),
+        title: Text(S.of(context).productDetails),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(25.0),
         child: Column(
           children: [
             Text(
               arguments.title,
               textAlign: TextAlign.center,
+              style: AppStyles.s18w500,
             ),
-            const SizedBox(height: 20.0),
+            const SizedBox(height: 30.0),
             Expanded(
               child: Image.network(arguments.image),
             ),
-            const SizedBox(height: 20.0),
+            const SizedBox(height: 30.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -34,15 +37,22 @@ class ProductDetailsScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10.0),
                     color: Colors.grey,
                   ),
-                  child: Text('${arguments.rating.rate}'),
+                  child: Text(
+                    '${arguments.rating.rate}',
+                    style: AppStyles.s20w700,
+                  ),
                 ),
-                Text('\$${arguments.price}'),
+                Text(
+                  '\$${arguments.price}',
+                  style: AppStyles.s20w700,
+                ),
               ],
             ),
-            const SizedBox(height: 20.0),
+            const SizedBox(height: 30.0),
             Text(
               arguments.description,
               textAlign: TextAlign.center,
+              style: AppStyles.s18w500,
             ),
           ],
         ),
