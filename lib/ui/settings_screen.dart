@@ -1,9 +1,10 @@
 import 'package:finish_task_part1/generated/l10n.dart';
 import 'package:finish_task_part1/repo/repo_settings.dart';
 import 'package:finish_task_part1/widgets/app_nav_bar.dart';
+import 'package:finish_task_part1/widgets/theme_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
+    final themeService = Provider.of<ThemeService>(context, listen: false);
     final repoSettings = context.read<RepoSettings>();
     return Scaffold(
       appBar: AppBar(
@@ -54,6 +56,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     setState(() {});
                   }
                   repoSettings.saveLocale(value);
+                },
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('${S.of(context).theme}: '),
+              DropdownButton<bool>(
+                value: themeService.darkTheme,
+                items: [
+                  DropdownMenuItem(
+                    value: false,
+                    child: Text(S.of(context).light),
+                  ),
+                  DropdownMenuItem(
+                    value: true,
+                    child: Text(S.of(context).dark),
+                  ),
+                ],
+                onChanged: (value) {
+                  themeService.darkTheme = value!;
                 },
               ),
             ],

@@ -28,8 +28,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "categoryJewelery": MessageLookupByLibrary.simpleMessage("Украшения"),
         "categoryMen": MessageLookupByLibrary.simpleMessage("Мужские одежды"),
         "categoryWomen": MessageLookupByLibrary.simpleMessage("Женские одежды"),
+        "dark": MessageLookupByLibrary.simpleMessage("Темный"),
         "english": MessageLookupByLibrary.simpleMessage("Английский"),
         "language": MessageLookupByLibrary.simpleMessage("Язык"),
+        "light": MessageLookupByLibrary.simpleMessage("Светлый"),
         "login": MessageLookupByLibrary.simpleMessage("Логин"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
@@ -50,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sortAsc":
             MessageLookupByLibrary.simpleMessage("Сортировка по-возрастанию"),
         "sortDesc":
-            MessageLookupByLibrary.simpleMessage("Сортировка по-убыванию")
+            MessageLookupByLibrary.simpleMessage("Сортировка по-убыванию"),
+        "theme": MessageLookupByLibrary.simpleMessage("Тема")
       };
 }

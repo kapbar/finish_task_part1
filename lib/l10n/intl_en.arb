@@ -23,5 +23,8 @@
     "rating2": "Rating: 2",
     "rating3": "Rating: 3",
     "rating4": "Rating: 4",
-    "rating5": "Rating: 5"
+    "rating5": "Rating: 5",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark"
 }

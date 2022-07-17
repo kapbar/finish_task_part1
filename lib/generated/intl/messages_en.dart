@@ -29,8 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "categoryMen": MessageLookupByLibrary.simpleMessage("Men\'s clothing"),
         "categoryWomen":
             MessageLookupByLibrary.simpleMessage("Women\'s clothing"),
+        "dark": MessageLookupByLibrary.simpleMessage("Dark"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "light": MessageLookupByLibrary.simpleMessage("Light"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
@@ -50,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "somethingWentWrongTryAgain": MessageLookupByLibrary.simpleMessage(
             "Something went wrong try again"),
         "sortAsc": MessageLookupByLibrary.simpleMessage("Sort Ascending"),
-        "sortDesc": MessageLookupByLibrary.simpleMessage("Sort Descending")
+        "sortDesc": MessageLookupByLibrary.simpleMessage("Sort Descending"),
+        "theme": MessageLookupByLibrary.simpleMessage("Theme")
       };
 }
