@@ -35,13 +35,19 @@ class RepoProducts {
     }
   }
 
-  ResultRepoProducts categoryProduct(String category) {
+  Future<ResultRepoProducts> categoryProduct(String category) async {
     try {
-      filteredList = category == 'category'
-          ? _productsList
-          : filteredList.where((element) {
-              return (element.category.toLowerCase() == category);
-            }).toList();
+      final result = await api.dio.get(
+        '/products$category',
+      );
+
+      final List productsListJson = result.data ?? [];
+      _productsList = productsListJson
+          .map(
+            (item) => Product.fromJson(item),
+          )
+          .toList();
+      filteredList = _productsList;
       return ResultRepoProducts(productsList: filteredList);
     } catch (error) {
       print('🏐 Error : $error');

@@ -13,7 +13,7 @@ class FilterProducts extends StatefulWidget {
 }
 
 class _FilterProductsState extends State<FilterProducts> {
-  String _dropDownValue1 = 'Category';
+  String _dropDownValue1 = '';
   double _dropDownValue2 = 0.0;
   @override
   Widget build(BuildContext context) {
@@ -26,29 +26,29 @@ class _FilterProductsState extends State<FilterProducts> {
             value: _dropDownValue1,
             items: [
               DropdownMenuItem(
-                value: 'Category',
+                value: '',
                 child: Text(S.of(context).category),
               ),
               DropdownMenuItem(
-                value: 'electronics',
+                value: '/category/electronics',
                 child: Text(S.of(context).categoryElectronics),
               ),
               DropdownMenuItem(
-                value: 'jewelery',
+                value: '/category/jewelery',
                 child: Text(S.of(context).categoryJewelery),
               ),
               DropdownMenuItem(
-                value: "men's clothing",
+                value: "/category/men's clothing",
                 child: Text(S.of(context).categoryMen),
               ),
               DropdownMenuItem(
-                value: "women's clothing",
+                value: "/category/women's clothing",
                 child: Text(S.of(context).categoryWomen),
               ),
             ],
             onChanged: (value) {
               BlocProvider.of<BlocProducts>(context).add(
-                EventProductsCategory(value!.toLowerCase()),
+                EventProductsCategory(value!),
               );
               setState(() {
                 _dropDownValue1 = value;

@@ -25,9 +25,9 @@ class BlocProducts extends Bloc<BlocProductsEvent, BlocProductsState> {
       },
     );
     on<EventProductsCategory>(
-      (event, emit) {
+      (event, emit) async {
         emit(BlocProductsLoading());
-        final result = repo.categoryProduct(event.category);
+        final result = await repo.categoryProduct(event.category);
         if (result.errorMessage != null) {
           emit(
             BlocProductsError(result.errorMessage!),
