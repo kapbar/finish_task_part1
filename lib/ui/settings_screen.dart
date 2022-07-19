@@ -1,7 +1,7 @@
 import 'package:finish_task_part1/generated/l10n.dart';
 import 'package:finish_task_part1/repo/repo_settings.dart';
 import 'package:finish_task_part1/widgets/app_nav_bar.dart';
-import 'package:finish_task_part1/widgets/theme_service.dart';
+import 'package:finish_task_part1/provider/theme_service.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
