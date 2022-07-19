@@ -1,27 +1,22 @@
 import 'package:finish_task_part1/bloc/bloc_products_bloc.dart';
 import 'package:finish_task_part1/generated/l10n.dart';
+import 'package:finish_task_part1/provider/sort_filter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
-class SortProducts extends StatefulWidget {
-  const SortProducts({
-    Key? key,
-  }) : super(key: key);
+class SortProducts extends StatelessWidget {
+  const SortProducts({Key? key}) : super(key: key);
 
-  @override
-  State<SortProducts> createState() => _SortProductsState();
-}
-
-class _SortProductsState extends State<SortProducts> {
-  String _dropDownValue = 'desc';
   @override
   Widget build(BuildContext context) {
+    final sortProducts = Provider.of<SortFilterProducts>(context);
     return Container(
       width: double.infinity,
       alignment: Alignment.center,
-      color: Colors.grey,
+      color: Theme.of(context).backgroundColor,
       child: DropdownButton<String>(
-        value: _dropDownValue,
+        value: sortProducts.dropDownValue,
         items: [
           DropdownMenuItem(
             value: 'asc',
@@ -36,9 +31,7 @@ class _SortProductsState extends State<SortProducts> {
           BlocProvider.of<BlocProducts>(context).add(
             EventProductsSort(value!),
           );
-          setState(() {
-            _dropDownValue = value;
-          });
+          sortProducts.sortProducts(value);
         },
       ),
     );

@@ -33,8 +33,8 @@ class ProductCard extends StatelessWidget {
         },
         contentPadding: const EdgeInsets.all(5.0),
         leading: CircleAvatar(
+          backgroundColor: Theme.of(context).backgroundColor,
           radius: 30,
-          backgroundColor: Colors.grey,
           child: Text('${data[index].id}'),
         ),
         title: Text(

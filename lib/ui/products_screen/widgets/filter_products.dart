@@ -1,29 +1,23 @@
 import 'package:finish_task_part1/bloc/bloc_products_bloc.dart';
 import 'package:finish_task_part1/generated/l10n.dart';
+import 'package:finish_task_part1/provider/sort_filter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 
-class FilterProducts extends StatefulWidget {
-  const FilterProducts({
-    Key? key,
-  }) : super(key: key);
+class FilterProducts extends StatelessWidget {
+  const FilterProducts({Key? key}) : super(key: key);
 
-  @override
-  State<FilterProducts> createState() => _FilterProductsState();
-}
-
-class _FilterProductsState extends State<FilterProducts> {
-  String _dropDownValue1 = '';
-  double _dropDownValue2 = 0.0;
   @override
   Widget build(BuildContext context) {
+    final filterProducts = Provider.of<SortFilterProducts>(context);
     return Container(
-      color: Colors.grey,
+      color: Theme.of(context).backgroundColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           DropdownButton<String>(
-            value: _dropDownValue1,
+            value: filterProducts.dropDownValue1,
             items: [
               DropdownMenuItem(
                 value: '',
@@ -50,13 +44,11 @@ class _FilterProductsState extends State<FilterProducts> {
               BlocProvider.of<BlocProducts>(context).add(
                 EventProductsCategory(value!),
               );
-              setState(() {
-                _dropDownValue1 = value;
-              });
+              filterProducts.categoryProducts(value);
             },
           ),
           DropdownButton<double>(
-            value: _dropDownValue2,
+            value: filterProducts.dropDownValue2,
             items: [
               DropdownMenuItem(
                 value: 0.0,
@@ -83,9 +75,7 @@ class _FilterProductsState extends State<FilterProducts> {
               BlocProvider.of<BlocProducts>(context).add(
                 EventProductsRating(value!),
               );
-              setState(() {
-                _dropDownValue2 = value;
-              });
+              filterProducts.ratingProducts(value);
             },
           ),
         ],

@@ -16,7 +16,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
-    final themeService = Provider.of<ThemeService>(context, listen: false);
+    final themeService = Provider.of<ThemeService>(context);
     final repoSettings = context.read<RepoSettings>();
     return Scaffold(
       appBar: AppBar(
