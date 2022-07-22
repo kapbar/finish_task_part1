@@ -30,6 +30,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "categoryWomen": MessageLookupByLibrary.simpleMessage("Женские одежды"),
         "dark": MessageLookupByLibrary.simpleMessage("Темный"),
         "english": MessageLookupByLibrary.simpleMessage("Английский"),
+        "errorMessage": MessageLookupByLibrary.simpleMessage(
+            "Ой что-то пошло не так. Пожалуйста повторите снова"),
+        "errorRatingMessage": MessageLookupByLibrary.simpleMessage(
+            "Данная категория не содержит товаров с рейтингом"),
         "language": MessageLookupByLibrary.simpleMessage("Язык"),
         "light": MessageLookupByLibrary.simpleMessage("Светлый"),
         "login": MessageLookupByLibrary.simpleMessage("Логин"),

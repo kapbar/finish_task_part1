@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           children: [
             Expanded(
-              child: Image.asset(AppAssets.images.logo),
+              child: Image.asset(AppAssets.images.logo2),
             ),
             Form(
               key: formKey,
@@ -64,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                       hintText: S.of(context).login,
                       filled: true,
-                      fillColor: const Color.fromARGB(255, 210, 210, 210),
+                      fillColor: const Color.fromARGB(255, 224, 224, 224),
                       border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(12.0)),
                         borderSide: BorderSide.none,
@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                       hintText: S.of(context).password,
                       filled: true,
-                      fillColor: const Color.fromARGB(255, 210, 210, 210),
+                      fillColor: const Color.fromARGB(255, 224, 224, 224),
                       border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(12.0)),
                         borderSide: BorderSide.none,
@@ -93,6 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ElevatedButton(
                     onPressed: () => register(),
                     style: ElevatedButton.styleFrom(
+                      primary: Theme.of(context).backgroundColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                       ),

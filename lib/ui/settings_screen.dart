@@ -6,20 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-class SettingsScreen extends StatefulWidget {
+class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);
 
   @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
-}
-
-class _SettingsScreenState extends State<SettingsScreen> {
-  @override
   Widget build(BuildContext context) {
-    final themeService = Provider.of<ThemeService>(context);
+    final themeAndLanguage = Provider.of<ThemeAndLanguageService>(context);
     final repoSettings = context.read<RepoSettings>();
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).backgroundColor,
         centerTitle: true,
         title: Text(S.of(context).settings),
       ),
@@ -44,17 +40,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
                 onChanged: (value) async {
                   if (value == null) return;
-                  if (value == 'ru_RU') {
-                    await S.load(
-                      const Locale('ru', 'RU'),
-                    );
-                    setState(() {});
-                  } else if (value == 'en') {
-                    await S.load(
-                      const Locale('en'),
-                    );
-                    setState(() {});
-                  }
+                  themeAndLanguage.onChange(value);
                   repoSettings.saveLocale(value);
                 },
               ),
@@ -65,7 +51,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             children: [
               Text('${S.of(context).theme}: '),
               DropdownButton<bool>(
-                value: themeService.darkTheme,
+                value: themeAndLanguage.darkTheme,
                 items: [
                   DropdownMenuItem(
                     value: false,
@@ -77,7 +63,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
                 onChanged: (value) {
-                  themeService.darkTheme = value!;
+                  themeAndLanguage.darkTheme = value!;
                 },
               ),
             ],

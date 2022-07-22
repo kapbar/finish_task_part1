@@ -30,7 +30,7 @@ class RepoProducts {
     } catch (error) {
       print('🏐 Error : $error');
       return ResultRepoProducts(
-        errorMessage: 'Error Error Error Error',
+        errorMessage: 'Oops something went wrong. Please try again',
       );
     }
   }
@@ -52,7 +52,7 @@ class RepoProducts {
     } catch (error) {
       print('🏐 Error : $error');
       return ResultRepoProducts(
-        errorMessage: 'Error Error Error Error',
+        errorMessage: 'Oops something went wrong. Please try again',
       );
     }
   }
@@ -62,13 +62,17 @@ class RepoProducts {
       filteredList = rate == 0.0
           ? _productsList
           : filteredList.where((element) {
-              return (rate <= element.rating.rate);
+              if (rate > element.rating.rate) {
+                return false;
+              } else {
+                return (rate + 1 > element.rating.rate);
+              }
             }).toList();
       return ResultRepoProducts(productsList: filteredList);
     } catch (error) {
       print('🏐 Error : $error');
       return ResultRepoProducts(
-        errorMessage: 'Error Error Error Error',
+        errorMessage: 'Oops something went wrong. Please try again',
       );
     }
   }

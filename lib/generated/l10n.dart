@@ -329,6 +329,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Oops something went wrong. Please try again`
+  String get errorMessage {
+    return Intl.message(
+      'Oops something went wrong. Please try again',
+      name: 'errorMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This category does not contain products rated`
+  String get errorRatingMessage {
+    return Intl.message(
+      'This category does not contain products rated',
+      name: 'errorRatingMessage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

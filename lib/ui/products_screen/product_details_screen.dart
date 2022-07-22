@@ -11,6 +11,7 @@ class ProductDetailsScreen extends StatelessWidget {
     final arguments = ModalRoute.of(context)!.settings.arguments as Product;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).backgroundColor,
         centerTitle: true,
         title: Text(S.of(context).productDetails),
       ),
@@ -35,7 +36,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
-                    color: Colors.grey,
+                    color: Theme.of(context).backgroundColor,
                   ),
                   child: Text(
                     '${arguments.rating.rate}',

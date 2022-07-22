@@ -1,4 +1,5 @@
 import 'package:finish_task_part1/bloc/bloc_products_bloc.dart';
+import 'package:finish_task_part1/constants/app_styles.dart';
 import 'package:finish_task_part1/generated/l10n.dart';
 import 'package:finish_task_part1/provider/sort_filter.dart';
 import 'package:finish_task_part1/ui/products_screen/widgets/filter_products.dart';
@@ -16,6 +17,7 @@ class ProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).backgroundColor,
         centerTitle: true,
         title: Text(S.of(context).products),
       ),
@@ -31,6 +33,8 @@ class ProductsScreen extends StatelessWidget {
                 Expanded(
                   child: BlocBuilder<BlocProducts, BlocProductsState>(
                     builder: (context, state) {
+                      final filterProducts =
+                          Provider.of<SortFilterProducts>(context);
                       if (state is BlocProductsLoading) {
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -50,15 +54,28 @@ class ProductsScreen extends StatelessWidget {
                         );
                       }
                       if (state is BlocProductsData) {
-                        return ListView.builder(
-                          itemCount: state.data.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return ProductCard(
-                              data: state.data,
-                              index: index,
-                            );
-                          },
-                        );
+                        if (state.data.isNotEmpty) {
+                          return ListView.builder(
+                            itemCount: state.data.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return ProductCard(
+                                data: state.data,
+                                index: index,
+                              );
+                            },
+                          );
+                        } else {
+                          return Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(
+                                textAlign: TextAlign.center,
+                                '${S.of(context).errorRatingMessage}: ${filterProducts.dropDownValue2}',
+                                style: AppStyles.s18w500,
+                              ),
+                            ),
+                          );
+                        }
                       }
                       return const SizedBox.shrink();
                     },

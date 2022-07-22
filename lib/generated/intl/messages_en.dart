@@ -31,6 +31,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Women\'s clothing"),
         "dark": MessageLookupByLibrary.simpleMessage("Dark"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
+        "errorMessage": MessageLookupByLibrary.simpleMessage(
+            "Oops something went wrong. Please try again"),
+        "errorRatingMessage": MessageLookupByLibrary.simpleMessage(
+            "This category does not contain products rated"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "light": MessageLookupByLibrary.simpleMessage("Light"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),

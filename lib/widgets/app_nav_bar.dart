@@ -35,6 +35,7 @@ class AppNavBar extends StatelessWidget {
       child: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: current,
+        selectedItemColor: Theme.of(context).backgroundColor,
         selectedFontSize: 14.0,
         unselectedFontSize: 14.0,
         items: [
