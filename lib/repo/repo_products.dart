@@ -61,7 +61,7 @@ class RepoProducts {
     try {
       filteredList = rate == 0.0
           ? _productsList
-          : filteredList.where((element) {
+          : _productsList.where((element) {
               if (rate > element.rating.rate) {
                 return false;
               } else {
